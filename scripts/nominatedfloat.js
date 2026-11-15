@@ -87,8 +87,16 @@ function closeNominatedFloat() {
 }
 
 async function maybeShowNominatedFloat() {
-  // Floating nominated overlay is disabled for now.
-  return;
+  var count = populateNominatedFloat();
+  if (count === 0) return;
+  if (typeof ensureExportFonts === "function") {
+    try {
+      await ensureExportFonts();
+    } catch (err) {
+      // Titles still render with fallback fonts.
+    }
+  }
+  openNominatedFloat();
 }
 
 document.addEventListener("keydown", function (event) {
