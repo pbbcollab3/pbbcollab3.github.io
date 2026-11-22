@@ -7,7 +7,7 @@ var pendingRankingIds = null;
 document.addEventListener("DOMContentLoaded", async function () {
   ranking = newRanking();
   pendingRankingIds = parseRankingIdsFromUrl();
-  await readFromCSV("./housemate_info.csv?v=3.0.25");
+  await readFromCSV("./housemate_info.csv?v=3.0.26");
   if (pendingRankingIds) {
     applyRankingIds(pendingRankingIds);
   }
